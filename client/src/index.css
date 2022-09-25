@@ -1,0 +1,13 @@
+body {
+  /* margin: 0; */
+  background-color: black;
+  background-image: url(./imgs/trial.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0px;
+  /* animation: fadeIn 1.5s; */
+  /* height: 100vh; */
+  user-select: none;
+}

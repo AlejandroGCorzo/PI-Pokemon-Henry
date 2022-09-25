@@ -1,0 +1,84 @@
+.card {
+  /* background-color: rgba(255, 255, 255, 0.3); */
+  /* backdrop-filter: blur(2px); */
+  /* margin: 3% 0.5% 0px; */
+  margin: 1.2% 4%;
+  /* padding: 0px 0px 0px 0px; */
+  width: 13%;
+  /* height: 20%; */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* justify-content: space-around; */
+  align-items: center;
+  animation: fadeIn 2s;
+}
+
+.LinkPokCard {
+  transition: 01s;
+}
+
+.LinkPokCard:hover {
+  filter: drop-shadow(0px 0px 1.2em rgb(255, 203, 5));
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.cardTitle {
+  font-family: 'pokemon';
+  height: auto;
+  letter-spacing: 2px;
+  font-size: 3vh;
+  text-transform: capitalize;
+  /* text-orientation: upright ; */
+  /* writing-mode: vertical-lr; */
+  /* font-size: small; */
+  color: white;
+  filter: drop-shadow(0px 0px 0.3em rgb(255, 203, 5));
+}
+
+.mainImg {
+  width: 50%;
+  height: auto;
+  filter: drop-shadow(0px 0px 0.3em rgb(255, 203, 5));
+}
+
+.detailTypes {
+  color: white;
+  /* margin-top: 2%; */
+  /* width:100%; */
+  /* background-color: blue; */
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  gap: 5px;
+}
+
+.eachCardType {
+  text-transform: capitalize;
+  /* margin: 0 0; */
+  /* background-color: blue; */
+  /* padding: 0 10px; */
+  /* border-radius: 0px; */
+  width: 30%;
+  filter: drop-shadow(0px 0px 0.3em rgb(255, 203, 5));
+}
+
+.TheOne{
+  width: 60vh;
+}
+.TheOne .cardTitle{
+  font-size: 6vh;
+}
