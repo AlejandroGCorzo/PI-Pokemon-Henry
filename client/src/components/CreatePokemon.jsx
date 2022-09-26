@@ -119,9 +119,11 @@ const CreatePokemon = () => {
       <form className="form" onSubmit={submit}>
         <div className="options">
           <div>
+            {/*  */}
             <div className="eachform">
-              <span>Name:</span>
+              <span className="eachFormSpan">Name:</span>
               <input
+                className="createPokInput"
                 placeholder="--Enter a name!--"
                 value={values.name}
                 onChange={handleInputChange}
@@ -129,11 +131,12 @@ const CreatePokemon = () => {
                 type="text"
                 name="name"
               />
-              {<span>{errorName}</span>}
+              <div className="errorDiv">{<span>{errorName}</span>}</div>
             </div>
             <div className="eachform">
-              <span>Attack:</span>
+              <span className="eachFormSpan">Attack:</span>
               <input
+                className="createPokInput"
                 placeholder="--Attack rating!--"
                 value={values.attack}
                 onChange={handleInputChangeNumbers}
@@ -141,11 +144,14 @@ const CreatePokemon = () => {
                 type="number"
                 name="attack"
               />
-              {errorNumber.attack && <span>{errorNumber.attack}</span>}
+              <div className="errorDiv">
+                {errorNumber.attack && <span>{errorNumber.attack}</span>}
+              </div>
             </div>
             <div className="eachform">
-              <span>Special Attack:</span>
+              <span className="eachFormSpan">Special Attack:</span>
               <input
+                className="createPokInput"
                 placeholder="--Special Attack!--"
                 value={values.special_attack}
                 onChange={handleInputChangeNumbers}
@@ -153,13 +159,111 @@ const CreatePokemon = () => {
                 type="number"
                 name="special_attack"
               />
-              {errorNumber.special_attack && (
-                <span>{errorNumber.special_attack}</span>
-              )}
+              <div className="errorDiv">
+                {errorNumber.special_attack && (
+                  <span>{errorNumber.special_attack}</span>
+                )}
+              </div>
             </div>
             <div className="eachform">
-              <span>Height:</span>
+              <span className="eachFormSpan">Speed:</span>
               <input
+                className="createPokInput"
+                placeholder="--Speed!--"
+                value={values.speed}
+                onChange={handleInputChangeNumbers}
+                autoComplete="off"
+                type="number"
+                name="speed"
+              />
+              <div className="errorDiv">
+                {errorNumber.speed && <span>{errorNumber.speed}</span>}
+              </div>
+            </div>
+          </div>
+          {/*  */}
+          <div>
+            <div className="eachform">
+              <span className="eachFormSpan">Hp:</span>
+              <input
+                className="createPokInput"
+                placeholder="--HP!--"
+                value={values.hp}
+                onChange={handleInputChangeNumbers}
+                autoComplete="off"
+                type="number"
+                name="hp"
+              />
+              <div className="errorDiv">
+                {errorNumber.hp && <span>{errorNumber.hp}</span>}
+              </div>
+            </div>
+            <div className="eachform">
+              <span className="eachFormSpan">Defense:</span>
+              <input
+                className="createPokInput"
+                placeholder="--Defense!--"
+                value={values.defense}
+                onChange={handleInputChangeNumbers}
+                autoComplete="off"
+                type="number"
+                name="defense"
+              />
+              <div className="errorDiv">
+                {errorNumber.defense && <span>{errorNumber.defense}</span>}
+              </div>
+            </div>
+            <div className="eachform">
+              <span className="eachFormSpan">Special Defense:</span>
+              <input
+                className="createPokInput"
+                placeholder="--Special Defense!--"
+                value={values.special_defense}
+                onChange={handleInputChangeNumbers}
+                autoComplete="off"
+                type="number"
+                name="special_defense"
+              />
+              <div className="errorDiv">
+                {errorNumber.special_defense && (
+                  <span>{errorNumber.special_defense}</span>
+                )}
+              </div>
+            </div>
+            <div className="eachform">
+              <span className="eachFormSpan">Img:</span>
+              <input
+                className="createPokInput"
+                placeholder="--Image URL!--"
+                value={values.img}
+                onChange={handleInputChange}
+                autoComplete="off"
+                type="url"
+                name="img"
+              />
+            </div>
+          </div>
+          {/*  */}
+          <div>
+            <div className="eachform">
+              <span className="eachFormSpan">Weight:</span>
+              <input
+                className="createPokInput"
+                placeholder="--Weight!--"
+                value={values.weight}
+                onChange={handleInputChangeNumbers}
+                autoComplete="off"
+                type="number"
+                name="weight"
+              />
+              <div className="errorDiv">
+                {errorNumber.weight && <span>{errorNumber.weight}</span>}
+              </div>
+            </div>
+            <div className="eachform">
+              <span className="eachFormSpan">Height:</span>
+              <input
+                className="createPokInput"
                 placeholder="--Height!--"
                 value={values.height}
                 onChange={handleInputChangeNumbers}
@@ -167,11 +271,14 @@ const CreatePokemon = () => {
                 type="number"
                 name="height"
               />
-              {errorNumber.height && <span>{errorNumber.height}</span>}
+              <div className="errorDiv">
+                {errorNumber.height && <span>{errorNumber.height}</span>}
+              </div>
             </div>
             <div className="eachform">
-              <span>Type or types:</span>
+              <span className="eachFormSpan">Type or types:</span>
               <select
+                className="createPokInput"
                 disabled={selectedTypes.length === 2}
                 onChange={handleTypeSelector}
                 name="type"
@@ -180,6 +287,7 @@ const CreatePokemon = () => {
                 {pokTypes?.map((el) => (
                   <TypeOptions key={el} str={el} />
                 ))}
+
                 <option disabled name="--Select one--">
                   --Select one--
                 </option>
@@ -194,93 +302,17 @@ const CreatePokemon = () => {
                 </option>
               </select>
               <div>
-                {selectedTypes.length ? (
+                {selectedTypes.length &&
                   selectedTypes.map((el) => (
                     <button onClick={handleCickType} key={el} value={el}>
                       {el}
                     </button>
-                  ))
-                ) : (
-                  <span>No types selected yet!</span>
-                )}
+                  ))}
               </div>
             </div>
           </div>
-          <div>
-            <div className="eachform">
-              <span>Hp:</span>
-              <input
-                placeholder="--HP!--"
-                value={values.hp}
-                onChange={handleInputChangeNumbers}
-                autoComplete="off"
-                type="number"
-                name="hp"
-              />
-              {errorNumber.hp && <span>{errorNumber.hp}</span>}
-            </div>
-            <div className="eachform">
-              <span>Defense:</span>
-              <input
-                placeholder="--Defense!--"
-                value={values.defense}
-                onChange={handleInputChangeNumbers}
-                autoComplete="off"
-                type="number"
-                name="defense"
-              />
-              {errorNumber.defense && <span>{errorNumber.defense}</span>}
-            </div>
-            <div className="eachform">
-              <span>Special Defense:</span>
-              <input
-                placeholder="--Special Defense!--"
-                value={values.special_defense}
-                onChange={handleInputChangeNumbers}
-                autoComplete="off"
-                type="number"
-                name="special_defense"
-              />
-              {errorNumber.special_defense && (
-                <span>{errorNumber.special_defense}</span>
-              )}
-            </div>
-            <div className="eachform">
-              <span>Speed:</span>
-              <input
-                placeholder="--Speed!--"
-                value={values.speed}
-                onChange={handleInputChangeNumbers}
-                autoComplete="off"
-                type="number"
-                name="speed"
-              />
-              {errorNumber.speed && <span>{errorNumber.speed}</span>}
-            </div>
-            <div className="eachform">
-              <span>Weight:</span>
-              <input
-                placeholder="--Weight!--"
-                value={values.weight}
-                onChange={handleInputChangeNumbers}
-                autoComplete="off"
-                type="number"
-                name="weight"
-              />
-              {errorNumber.weight && <span>{errorNumber.weight}</span>}
-            </div>
-            <div className="eachform">
-              <span>Img:</span>
-              <input
-                placeholder="--Image URL!--"
-                value={values.img}
-                onChange={handleInputChange}
-                autoComplete="off"
-                type="url"
-                name="img"
-              />
-            </div>
-          </div>
+
+          {/*  */}
         </div>
         <div className="buttonForm">
           <button
