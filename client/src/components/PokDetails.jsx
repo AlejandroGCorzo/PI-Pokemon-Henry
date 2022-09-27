@@ -21,7 +21,7 @@ import { useHistory } from 'react-router-dom';
 import * as allTypesJPG from '../imgs/PokTypes/exportTypes.js';
 import waitingGif from '../imgs/waitingGif.gif';
 
-export default function MovieDetail(props) {
+export default function PokDetails(props) {
   const allPok = useSelector((state) => state.allPok);
   const pokDetail = useSelector((state) => state.pokDetail);
   const [deleteVerification, setDeleteVerification] = useState(false);
@@ -180,7 +180,11 @@ export default function MovieDetail(props) {
                 return el;
               })
               .map((el) => (
-                <img className="pokDetailTypesIMG" src={allTypesJPG[el]} />
+                <img
+                  key={el}
+                  className="pokDetailTypesIMG"
+                  src={allTypesJPG[el]}
+                />
               ))}
           </div>
           <div className="pokDetailButton">

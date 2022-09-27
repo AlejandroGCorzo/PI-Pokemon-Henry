@@ -17,7 +17,11 @@ const PokCard = (props) => {
               return el;
             })
             .map((el) => (
-              <img className={`${el} eachCardType`} src={allTypesJPG[el]} />
+              <img
+                key={el}
+                className={`${el} eachCardType`}
+                src={allTypesJPG[el]}
+              />
             ))}
         </div>
       </Link>
