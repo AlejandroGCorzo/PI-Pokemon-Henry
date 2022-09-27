@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../css/createPokemon.css';
 import { createPokemon, getAllPok, getTypes } from '../redux/actions/actions';
 import TypeOptions from './TypeOptions.jsx';
+import * as allTypesJPG from '../imgs/PokTypes/exportTypes.js';
 
 const CreatePokemon = () => {
   const dispatch = useDispatch();
@@ -10,9 +11,9 @@ const CreatePokemon = () => {
   const allPok = useSelector((state) => state.allPok);
   //
   const selectorDefault = '--Select one--';
-  const selectorAnother = '--Select any other type?--';
+  const selectorAnother = '--Another type?--';
   const alreadySelected = '--Already selected!--';
-  const twoTypesSelected = '--Already 2 types selected!--';
+  const twoTypesSelected = '--2 types selected!--';
   //
   const [typeOptions, setTypeOptions] = useState(selectorDefault);
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -62,17 +63,18 @@ const CreatePokemon = () => {
   const handleInputChange = function (e) {
     e.preventDefault();
     console.log(selectedTypes);
-    if (!/^(^$|[ a-z ])+$/i.test(e.target.value)) setErrorName('Only letters!');
+    if (e.target.name === 'name' && !/^(^$|[ a-z ])+$/i.test(e.target.value))
+      setErrorName('Only letters!');
     else setErrorName('');
     setValues({ ...values, [e.target.name]: e.target.value });
   };
   //
   const handleInputChangeNumbers = (e) => {
     e.preventDefault();
-    if (e.target.value > 99 || e.target.value < 1)
+    if (e.target.value > 200 || e.target.value < 1)
       setErrorNumber({
         ...errorNumber,
-        [e.target.name]: 'Between 1 and 99!',
+        [e.target.name]: 'Between 1 and 200!',
       });
     else setErrorNumber({ ...errorNumber, [e.target.name]: undefined });
     setValues({ ...values, [e.target.name]: Number(e.target.value) });
@@ -291,22 +293,26 @@ const CreatePokemon = () => {
                 <option disabled name="--Select one--">
                   --Select one--
                 </option>
-                <option disabled name="--Select any other type?--">
-                  --Select any other type?--
+                <option disabled name="--Another type?--">
+                  --Another type?--
                 </option>
                 <option disabled name="--Already selected!--">
                   --Already selected!--
                 </option>
-                <option disabled name="--Already 2 types selected!--">
-                  --Already 2 types selected!--
+                <option disabled name="--2 types selected!--">
+                  --2 types selected!--
                 </option>
               </select>
-              <div>
+              <div className="createPokTypesDIV">
                 {selectedTypes.length &&
                   selectedTypes.map((el) => (
-                    <button onClick={handleCickType} key={el} value={el}>
-                      {el}
-                    </button>
+                    <img
+                      className="createPokTypesButtons"
+                      onClick={handleCickType}
+                      key={el}
+                      src={allTypesJPG[el]}
+                      value={el}
+                    />
                   ))}
               </div>
             </div>
@@ -316,6 +322,7 @@ const CreatePokemon = () => {
         </div>
         <div className="buttonForm">
           <button
+            className="createPokBtton"
             type="submit"
             disabled={
               values.name.length === 0 ||
@@ -335,7 +342,9 @@ const CreatePokemon = () => {
           >
             Create Pokemon
           </button>
-          <button onClick={clear}>Clear</button>
+          <button className="createPokBtton" onClick={clear}>
+            Clear
+          </button>
         </div>
       </form>
     </div>

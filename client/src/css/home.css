@@ -84,11 +84,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 10vh;
+  height: 8vh;
   color: white;
-  width: 30%;
+  width: 35%;
   position: absolute;
-  top: 0;
+  top: 1vh;
   right: 15%;
   z-index: 99 !important;
   animation: fadeIn 2s;
@@ -98,9 +98,11 @@
 }
 .searchInput {
   font-family: 'pokemon';
+  font-size: 2.5vh;
   letter-spacing: 3px;
   width: 50%;
-  filter: drop-shadow(0px 0px 2px rgb(255, 203, 5));
+  filter: drop-shadow(0px 0px 2px rgb(255, 203, 5))
+    drop-shadow(0px 0px 2px rgb(255, 203, 5));
   border-radius: 50px;
   text-align: center;
   transition: 0.5s;
@@ -110,16 +112,20 @@
   background: white;
   color: black;
   border-radius: 100px;
-  box-shadow: 0 0 2px white, 0 0 4px white, 0 0 8px white, 0 0 16px white;
+  box-shadow: 0 0 1px white, 0 0 2px white, 0 0 4px white, 0 0 8px white;
 }
 
 .searchClear {
+  font-size: 2.5vh;
   background: transparent;
-  color: rgb(255, 203, 5);
+  color: black;
   border: none;
   font-family: 'pokemon';
   letter-spacing: 3px;
-  filter: drop-shadow(0px 0px 0.5px rgb(255, 203, 5));
+  filter: drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5));
   cursor: pointer;
   padding: 0 1%;
   transition: 0.5s;
@@ -129,12 +135,17 @@
   background: white;
   color: black;
   border-radius: 100px;
-  box-shadow: 0 0 2px white, 0 0 4px white, 0 0 8px white, 0 0 16px white;
+  filter: none;
+  filter: drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5));
+  box-shadow: 0 0 1px white, 0 0 2px white, 0 0 4px white, 0 0 8px white;
 }
 
 .searchBar button[disabled]:hover {
   background: red;
-  box-shadow: 0 0 2px red, 0 0 4px red, 0 0 8px red, 0 0 16px red;
+  filter: none;
+  filter: drop-shadow(0px 0px 0.05em red);
+  box-shadow: 0 0 1px red, 0 0 2px red, 0 0 4px red, 0 0 8px red;
 }
 
 .searchNotFound {

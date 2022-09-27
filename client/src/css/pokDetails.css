@@ -15,10 +15,13 @@
 
 .pokdetailName {
   font-size: 5vh;
-  color: rgb(255, 203, 5);
+  color: black;
   letter-spacing: 5px;
   text-transform: capitalize;
-  filter: drop-shadow(0px 0px 0.3em rgb(255, 203, 5));
+  filter: drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5));
   transition: 0.5s;
   padding: 0 2.5vh;
   border: none;
@@ -29,7 +32,7 @@
   background: white;
   color: black;
   border-radius: 5vh;
-  box-shadow: 0 0 3px white, 0 0 6px white, 0 0 12px white, 0 0 24px white;
+  box-shadow: 0 0 1px white, 0 0 2px white, 0 0 4px white, 0 0 8px white;
 }
 
 .pokdetailRadImg {
@@ -63,9 +66,8 @@
   width: 50vw;
   font-size: 3vh;
   color: black;
-  filter: drop-shadow(0px 0px 1vh rgb(255, 255, 255))
-    drop-shadow(0px 0px 1vh rgb(255, 255, 255))
-    drop-shadow(0px 0px 1vh rgb(255, 255, 255));
+  filter: drop-shadow(0px 0px 0.1em white) drop-shadow(0px 0px 0.1em white)
+    drop-shadow(0px 0px 0.1em white) drop-shadow(0px 0px 0.1em white);
 }
 
 .statsRadar {
@@ -88,9 +90,8 @@
   justify-content: center;
   font-size: 3vh;
   color: black;
-  filter: drop-shadow(0px 0px 1vh rgb(255, 255, 255))
-    drop-shadow(0px 0px 1vh rgb(255, 255, 255))
-    drop-shadow(0px 0px 1vh rgb(255, 255, 255));
+  filter: drop-shadow(0px 0px 0.1em white) drop-shadow(0px 0px 0.1em white)
+    drop-shadow(0px 0px 0.1em white) drop-shadow(0px 0px 0.1em white);
 }
 
 .pokDetailIMG {

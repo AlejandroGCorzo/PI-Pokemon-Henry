@@ -8,7 +8,7 @@ export default class Nav extends Component {
     return (
       <nav className="nav">
         <div className="menu">
-          <Link className="link" to="/">
+          <Link className="linkIMG" to="/">
             <img className="pokeBallNav" alt="Landing" src={pokeBall} />
           </Link>
           <Link className="link span" to="/pokemons">

@@ -1,17 +1,10 @@
 .createPokemon {
-  /* margin-top: 10vh; */
+  margin-top: 10vh;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   font-family: 'pokemon';
   color: black;
   letter-spacing: 0.75vh;
-}
-
-.options {
-  display: flex;
-  justify-content: space-around;
-  justify-content: center;
-  /* align-items: center; */
 }
 
 .form {
@@ -23,21 +16,31 @@
   /* background-color: rgb(69, 114, 114); */
   /* margin-left: 10%; */
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  justify-content: center;
+  /* align-items: center; */
+  height: 72vh;
+  margin: 3vh;
 }
 
 .eachform {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   padding: 10px;
   width: 20vw;
   align-items: center;
+  margin-bottom: 3vh;
 }
 
-.buttonForm {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
+.eachform span {
+  margin-bottom: 1vh;
+  font-size: 2.3vh;
 }
 
 .errorDiv {
@@ -56,7 +59,10 @@
   font-family: 'pokemon';
   letter-spacing: 0.3vh;
   width: 15vw;
-  filter: drop-shadow(0px 0px 2px rgb(255, 203, 5));
+  filter: drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5));
   border-radius: 50px;
   text-align: center;
   transition: 0.5s;
@@ -65,5 +71,88 @@
   background: white;
   color: black;
   border-radius: 100px;
-  box-shadow: 0 0 2px white, 0 0 4px white, 0 0 8px white, 0 0 16px white;
+  filter: none;
+  filter: drop-shadow(0px 0px 0.1em white) drop-shadow(0px 0px 0.1em white)
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5)) drop-shadow(0px 0px 0.1em green);
+}
+
+.buttonForm {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  /* flex-direction: column; */
+  /* padding: 10px; */
+  width: 25vw;
+  height: 10vh;
+}
+
+.createPokBtton {
+  margin: 1vh 0 1vh 0;
+  font-size: 2.3vh;
+  background: transparent;
+  color: black;
+  border: none;
+  font-family: 'pokemon';
+  letter-spacing: 3px;
+  filter: drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5));
+  cursor: pointer;
+  padding: 0 1%;
+  transition: 0.5s;
+}
+
+.createPokBtton:hover {
+  background: white;
+  color: black;
+  border-radius: 100px;
+  filter: none;
+  filter: drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5));
+  box-shadow: 0 0 1px white, 0 0 2px white, 0 0 4px white, 0 0 8px white;
+}
+
+.createPokBtton[disabled]:hover {
+  background: red;
+  filter: none;
+  filter: drop-shadow(0px 0px 0.05em red);
+  box-shadow: 0 0 1px red, 0 0 2px red, 0 0 4px red, 0 0 8px red;
+}
+
+.createPokTypesDIV {
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.createPokTypesButtons {
+  margin: 1vh 0 1vh 0;
+  font-size: 2.3vh;
+  background: transparent;
+  color: black;
+  border: none;
+  font-family: 'pokemon';
+  letter-spacing: 3px;
+  filter: drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5));
+  cursor: pointer;
+  padding: 0 1%;
+  transition: 0.5s;
+  height: 7vh;
+}
+
+.createPokTypesButtons:hover {
+  background: white;
+  color: black;
+  border-radius: 100px;
+  filter: none;
+  filter: drop-shadow(0px 0px 0.05em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.05em rgb(255, 203, 5));
+  box-shadow: 0 0 1px white, 0 0 2px white, 0 0 4px white, 0 0 8px white;
 }

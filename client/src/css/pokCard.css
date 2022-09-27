@@ -40,13 +40,16 @@ a {
   font-family: 'pokemon';
   height: auto;
   letter-spacing: 2px;
-  font-size: 3vh;
+  font-size: 2.5vh;
   text-transform: capitalize;
   /* text-orientation: upright ; */
   /* writing-mode: vertical-lr; */
   /* font-size: small; */
-  color: white;
-  filter: drop-shadow(0px 0px 0.3em rgb(255, 203, 5));
+  color: black;
+  filter: drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5))
+    drop-shadow(0px 0px 0.1em rgb(255, 203, 5));
 }
 
 .mainImg {
@@ -76,9 +79,9 @@ a {
   filter: drop-shadow(0px 0px 0.3em rgb(255, 203, 5));
 }
 
-.TheOne{
+.TheOne {
   width: 60vh;
 }
-.TheOne .cardTitle{
+.TheOne .cardTitle {
   font-size: 6vh;
 }
