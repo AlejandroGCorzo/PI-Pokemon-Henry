@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import '../css/createPokemon.css';
 import { createPokemon, getAllPok, getTypes } from '../redux/actions/actions';
 import TypeOptions from './TypeOptions.jsx';
@@ -7,6 +8,7 @@ import * as allTypesJPG from '../imgs/PokTypes/exportTypes.js';
 
 const CreatePokemon = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const pokTypes = useSelector((state) => state.pokTypes);
   const allPok = useSelector((state) => state.allPok);
   //
@@ -103,6 +105,7 @@ const CreatePokemon = () => {
     setSelectedTypes([]);
     setTypeOptions(selectorDefault);
     setTimeout(() => dispatch(getAllPok()), 1000);
+    history.push('/pokemons');
   };
   //
   const clear = (e) => {
