@@ -101,6 +101,7 @@ const CreatePokemon = () => {
     dispatch(createPokemon(values));
     setValues(initialValues);
     setSelectedTypes([]);
+    setTypeOptions(selectorDefault);
     setTimeout(() => dispatch(getAllPok()), 1000);
   };
   //
