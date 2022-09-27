@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getAllPok,
@@ -23,24 +23,17 @@ import waitingGif from '../imgs/waitingGif.gif';
 
 export default function MovieDetail(props) {
   const allPok = useSelector((state) => state.allPok);
-  // const pokTypes = useSelector((state) => state.pokTypes);
   const pokDetail = useSelector((state) => state.pokDetail);
+  const [deleteVerification, setDeleteVerification] = useState(false);
   // // // // // // // // //
   const dispatch = useDispatch();
   const history = useHistory();
   // // // // // // // // //
   useEffect(() => {
-    // if (pokTypes.length === 0) dispatch(getTypes());
     if (allPok.length === 0) {
       dispatch(getAllPok());
       dispatch(getPokByIdFromAPI(props.match.params.id));
     } else dispatch(getPokDetailFromSTORE(props.match.params.id));
-    // if (allPok.length === 0)
-    //   setTimeout(
-    //     () => dispatch(getPokDetailFromSTORE(props.match.params.id)),
-    //     2000
-    //   );
-    // dispatch(getPokDetail(props.match.params.id));
   }, [dispatch, props.match.params.id]);
 
   // ChartJS.register(
@@ -192,13 +185,39 @@ export default function MovieDetail(props) {
           </div>
           <div className="pokDetailButton">
             {typeof pokDetail.id === 'string' ? (
-              <button onClick={destroy}>Delete Pokemon!</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDeleteVerification(true);
+                }}
+              >
+                Delete Pokemon!
+              </button>
             ) : null}
           </div>
         </div>
       ) : (
         <div className="pokeDetailWaitingGifContainer">
           <img className="pokeDetailWaitingGif" src={waitingGif} />
+        </div>
+      )}
+      {deleteVerification && (
+        <div className="deleteVerificationBox">
+          <span>Are you sure you want to delete this Pokemon?</span>
+          <div>
+            <button onClick={destroy} className="deleteVerificationBoxConfirm">
+              Yes, delete!
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setDeleteVerification(false);
+              }}
+              className="deleteVerificationBoxBack"
+            >
+              No, take me back!
+            </button>
+          </div>
         </div>
       )}
     </div>
