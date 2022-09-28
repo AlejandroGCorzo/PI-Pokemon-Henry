@@ -7,6 +7,8 @@ import {
   deletePokemon,
   waitingOn,
   clearDetails,
+  clear,
+  holdSettings,
 } from '../redux/actions/actions.js';
 import '../css/pokDetails.css';
 import { useHistory } from 'react-router-dom';
@@ -144,6 +146,13 @@ export default function PokDetails(props) {
 
   const destroy = (e) => {
     e.preventDefault();
+    dispatch(waitingOn(true));
+    dispatch(clear());
+    dispatch(
+      holdSettings({
+        page: 1,
+      })
+    );
     dispatch(deletePokemon(pokDetail.id));
     setTimeout(() => {
       dispatch(getAllPok());

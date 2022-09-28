@@ -8,7 +8,9 @@ import {
   getTypes,
   waitingOn,
   holdSettings,
+  clear as clearStore,
 } from '../redux/actions/actions';
+
 import TypeOptions from './TypeOptions.jsx';
 import * as allTypesJPG from '../imgs/PokTypes/exportTypes.js';
 
@@ -117,6 +119,7 @@ const CreatePokemon = () => {
     setSelectedTypes([]);
     setTypeOptions(selectorDefault);
     dispatch(waitingOn());
+    dispatch(clearStore());
     dispatch(
       holdSettings({
         page: 1,
