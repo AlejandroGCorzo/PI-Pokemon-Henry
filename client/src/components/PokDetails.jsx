@@ -5,6 +5,8 @@ import {
   getPokDetailFromSTORE,
   getPokByIdFromAPI,
   deletePokemon,
+  waitingOn,
+  clearDetails,
 } from '../redux/actions/actions.js';
 import '../css/pokDetails.css';
 import { useHistory } from 'react-router-dom';
@@ -20,10 +22,12 @@ import { useHistory } from 'react-router-dom';
 // import { Radar } from 'react-chartjs-2';
 import * as allTypesJPG from '../imgs/PokTypes/exportTypes.js';
 import waitingGif from '../imgs/waitingGif.gif';
+import sideduck from '../imgs/sideduck.png';
 
 export default function PokDetails(props) {
   const allPok = useSelector((state) => state.allPok);
   const pokDetail = useSelector((state) => state.pokDetail);
+  const waiting = useSelector((state) => state.waiting);
   const [deleteVerification, setDeleteVerification] = useState(false);
   // // // // // // // // //
   const dispatch = useDispatch();
@@ -32,9 +36,18 @@ export default function PokDetails(props) {
   useEffect(() => {
     if (allPok.length === 0) {
       dispatch(getAllPok());
+      dispatch(waitingOn());
       dispatch(getPokByIdFromAPI(props.match.params.id));
-    } else dispatch(getPokDetailFromSTORE(props.match.params.id));
-  }, [dispatch, props.match.params.id]);
+    } else if (allPok.find((el) => el.id === props.match.params.id))
+      dispatch(getPokDetailFromSTORE(props.match.params.id));
+    else {
+      dispatch(waitingOn());
+      dispatch(getPokByIdFromAPI(props.match.params.id));
+    }
+    return () => {
+      dispatch(clearDetails());
+    };
+  }, [dispatch]);
 
   // ChartJS.register(
   //   RadialLinearScale,
@@ -137,10 +150,10 @@ export default function PokDetails(props) {
     }, 1000);
     history.push('/pokemons');
   };
-
-  return (
-    <div>
-      {pokDetail.id ? (
+  // // // // // // // // // // // // // // // // // // // // //
+  const rend = () => {
+    if (pokDetail.id)
+      return (
         <div className="pokdetailAll">
           <div className="pokdetailName">
             <span>{pokDetail.name && pokDetail.name}</span>
@@ -158,8 +171,8 @@ export default function PokDetails(props) {
               />
             </div>
             {/* <div className="statsRadar">
-              <Radar data={data} options={options} />
-            </div> */}
+        <Radar data={data} options={options} />
+      </div> */}
             <div className="statsSpans">
               <span>{`Hp: ${pokDetail.hp}`}</span>
               <span>{`Attack: ${pokDetail.attack}`}</span>
@@ -200,11 +213,26 @@ export default function PokDetails(props) {
             ) : null}
           </div>
         </div>
-      ) : (
+      );
+
+    if (waiting)
+      return (
         <div className="pokeDetailWaitingGifContainer">
           <img className="pokeDetailWaitingGif" src={waitingGif} />
         </div>
-      )}
+      );
+
+    return (
+      <div className="idNotFound">
+        <span>Pokemon not found!</span>
+        <img src={sideduck} />
+      </div>
+    );
+  };
+  // // // // // // // // // // // // // // // // // // // //
+  return (
+    <div>
+      {rend()}
       {deleteVerification && (
         <div className="deleteVerificationBox">
           <span>Are you sure you want to delete this Pokemon?</span>

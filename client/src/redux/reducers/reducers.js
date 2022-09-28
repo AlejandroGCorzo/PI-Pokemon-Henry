@@ -4,11 +4,14 @@ import {
   GET_POK_BY_ID,
   GET_POK_BY_ID_FROM_API,
   GET_POK_BY_NAME,
+  GET_POK_BY_NAME_FROM_API,
   GET_TYPES,
   // DELETE_POKEMON,
   CLEAR,
   SORT,
   HOLD_SETTINGS,
+  WAITING_ON,
+  CLEAR_DETAILS,
 } from '../actions/actions';
 
 const initialState = {
@@ -25,6 +28,7 @@ const initialState = {
     sortType: 'Select Option',
     sortFROM: 'Select Option',
   },
+  waiting: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -34,9 +38,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allPok: [...action.payload],
         sortedPok: [...action.payload],
-        sortByNameOrAttack: [...action.payload],
-        sortByType: [...action.payload],
-        sortByFrom: [...action.payload],
+        waiting: false,
       };
 
     case GET_POK_BY_ID:
@@ -48,7 +50,9 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_POK_BY_ID_FROM_API:
-      return { ...state, pokDetail: { ...action.payload } };
+      if (action.payload.id)
+        return { ...state, pokDetail: { ...action.payload }, waiting: false };
+      return { ...state, pokDetail: action.payload, waiting: false };
 
     case GET_POK_BY_NAME:
       return {
@@ -58,14 +62,24 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
 
+    case GET_POK_BY_NAME_FROM_API:
+      return {
+        ...state,
+        pokByName: action.payload,
+        waiting: false,
+      };
+
     case CLEAR:
       return {
         ...state,
         sortedPok: [...state.allPok],
-        sortByNameOrAttack: [...state.allPok],
-        sortByType: [...state.allPok],
-        sortByFrom: [...state.allPok],
         pokByName: [],
+      };
+
+    case CLEAR_DETAILS:
+      return {
+        ...state,
+        pokDetail: [],
       };
 
     case GET_TYPES:
@@ -118,6 +132,11 @@ const rootReducer = (state = initialState, action) => {
         settings: { ...state.settings, ...action.settings },
       };
 
+    case WAITING_ON:
+      return {
+        ...state,
+        waiting: true,
+      };
     // // // // // // // // // // // // // // // // // // // //
     // aca para abajo esta improvisado
 

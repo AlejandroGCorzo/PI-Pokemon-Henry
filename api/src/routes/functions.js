@@ -103,7 +103,7 @@ const getPokByName = async (name) => {
         };
       });
 
-  return apiPok;
+  return [apiPok];
 };
 
 const getPokById = async (id) => {

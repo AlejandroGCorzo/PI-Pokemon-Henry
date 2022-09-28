@@ -5,11 +5,14 @@ export const GET_ALL_POKEMON = 'GET_ALL_POKEMON';
 export const GET_POK_BY_ID = 'GET_POK_BY_ID';
 export const GET_POK_BY_ID_FROM_API = 'GET_POK_BY_ID_FROM_API';
 export const GET_POK_BY_NAME = 'GET_POK_BY_NAME';
+export const GET_POK_BY_NAME_FROM_API = 'GET_POK_BY_NAME_FROM_API';
 export const GET_TYPES = 'GET_TYPES';
 // export const DELETE_POKEMON = 'DELETE_POKEMON';
 export const CLEAR = 'CLEAR';
 export const SORT = 'SORT';
 export const HOLD_SETTINGS = 'HOLD_SETTINGS';
+export const WAITING_ON = 'WAITING_ON';
+export const CLEAR_DETAILS = 'CLEAR_DETAILS';
 
 export const getAllPok = () => async (dispatch) => {
   const info = await axios.get(`/pokemons`);
@@ -57,10 +60,22 @@ export const getPokeByName = (str) => {
   };
 };
 
+export const getPokeByNameFromAPI = (str) => async (dispatch) => {
+  const info = await axios.get(`/pokemons?name=${str}`);
+  console.log(info.data);
+  dispatch({ type: GET_POK_BY_NAME_FROM_API, payload: info.data });
+};
+
 export const clear = () => {
   return {
     type: CLEAR,
     payload: [],
+  };
+};
+
+export const clearDetails = () => {
+  return {
+    type: CLEAR_DETAILS,
   };
 };
 
@@ -70,6 +85,10 @@ export const sortAction = (sortedWith) => {
 
 export const holdSettings = (settings) => {
   return { type: HOLD_SETTINGS, settings };
+};
+
+export const waitingOn = () => {
+  return { type: WAITING_ON };
 };
 
 // // // // // // // // // // // // // //

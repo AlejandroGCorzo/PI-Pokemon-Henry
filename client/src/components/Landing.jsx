@@ -5,7 +5,7 @@ import landingPokemonLogo from '../imgs/landing-pokemon-logo.png';
 import '../css/landing.css';
 import linkedinLogo from '../imgs/subNav-linkedin.png';
 import gitHubLogo from '../imgs/subNav-gitHub.png';
-import { getAllPok, getTypes } from '../redux/actions/actions';
+import { getAllPok, getTypes, waitingOn } from '../redux/actions/actions';
 
 export default function Landing() {
   const allPok = useSelector((state) => state.allPok);
@@ -13,7 +13,10 @@ export default function Landing() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (pokTypes.length === 0) dispatch(getTypes());
-    if (allPok.length === 0) dispatch(getAllPok());
+    if (allPok.length === 0) {
+      dispatch(getAllPok());
+      dispatch(waitingOn());
+    }
   }, [dispatch]);
   return (
     <div className="landing">

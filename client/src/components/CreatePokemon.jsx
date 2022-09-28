@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import '../css/createPokemon.css';
-import { createPokemon, getAllPok, getTypes } from '../redux/actions/actions';
+import {
+  createPokemon,
+  getAllPok,
+  getTypes,
+  waitingOn,
+  holdSettings,
+} from '../redux/actions/actions';
 import TypeOptions from './TypeOptions.jsx';
 import * as allTypesJPG from '../imgs/PokTypes/exportTypes.js';
 
@@ -110,7 +116,17 @@ const CreatePokemon = () => {
     setValues(initialValues);
     setSelectedTypes([]);
     setTypeOptions(selectorDefault);
-    setTimeout(() => dispatch(getAllPok()), 1000);
+    dispatch(waitingOn());
+    dispatch(
+      holdSettings({
+        page: 1,
+        sortAlph: selectorDefault,
+        sortAttack: selectorDefault,
+        sortType: selectorDefault,
+        sortFROM: selectorDefault,
+      })
+    );
+    setTimeout(() => dispatch(getAllPok()), 500);
     history.push('/pokemons');
   };
   //
@@ -123,8 +139,11 @@ const CreatePokemon = () => {
   //
   useEffect(() => {
     if (pokTypes.length === 0) dispatch(getTypes());
-    if (allPok.length === 0) dispatch(getAllPok());
-  }, [dispatch, pokTypes.length, allPok.length]);
+    if (allPok.length === 0) {
+      dispatch(getAllPok());
+      dispatch(waitingOn());
+    }
+  }, [dispatch]);
   //
   return (
     <div className="createPokemon">

@@ -27,6 +27,7 @@
 .waitingGif {
   filter: invert(1);
   animation: fadeIn 1.5s;
+  z-index: -99 !important;
 }
 
 .allSelectors {
@@ -149,7 +150,11 @@
 }
 
 .searchNotFound {
-  height: 50vh;
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* top: 0; */
+  /* margin-top: 10vh; */
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,16 +163,17 @@
 
 .searchNotFound span {
   /* font-size: 100%; */
-  color: white;
   font-family: 'pokemon';
-  filter: drop-shadow(0px 0px 2px rgb(255, 203, 5));
   letter-spacing: 3px;
-  font-size: larger;
-  margin-bottom: 10%;
+  font-size: 5vh;
+  margin-bottom: 5vh;
+  color: black;
+  filter: drop-shadow(0px 0px 0.1em white) drop-shadow(0px 0px 0.1em white)
+    drop-shadow(0px 0px 0.1em white) drop-shadow(0px 0px 0.1em white);
 }
 
 .searchNotFound img {
-  width: 50%;
+  width: 50vh;
 }
 
 .paginado {

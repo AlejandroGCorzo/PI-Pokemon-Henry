@@ -7,6 +7,8 @@ import {
   getTypes,
   sortAction,
   holdSettings,
+  waitingOn,
+  getPokeByNameFromAPI,
 } from '../redux/actions/actions';
 import '../css/home.css';
 import TypeOptions from './TypeOptions.jsx';
@@ -15,12 +17,13 @@ import rightArrow from '../imgs/right-arrow.png';
 import leftArrow from '../imgs/left-arrow.png';
 import waitingGif from '../imgs/waitingGif.gif';
 import sideduck from '../imgs/sideduck.png';
-// // // // // // // // // // // // 
+// // // // // // // // // // // //
 export default function Home() {
   const allPok = useSelector((state) => state.allPok);
   const sortedPok = useSelector((state) => state.sortedPok);
   const pokByName = useSelector((state) => state.pokByName);
   const pokTypes = useSelector((state) => state.pokTypes);
+  const waiting = useSelector((state) => state.waiting);
   // // // // // //
   const [search, setSearch] = useState('');
   const [searched, setSearched] = useState(false);
@@ -39,8 +42,17 @@ export default function Home() {
   // // // // // //
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setSearched(true);
-    dispatch(getPokeByName(search));
+    if (allPok.find((el) => el.name === search)) {
+      dispatch(getPokeByName(search));
+    } else {
+      dispatch(waitingOn());
+      dispatch(getPokeByNameFromAPI(search));
+      // setTimeout(() => {
+      //   if (pokByName.length) return setSearched(true), 1000;
+      // });
+    }
     setSearch('');
     dispatch(holdSettings({ page: 1 }));
   };
@@ -71,7 +83,7 @@ export default function Home() {
   };
   // // // // // //
   const rend = () => {
-    if (pokByName.length && searched) {
+    if (pokByName.length && Array.isArray(pokByName) && searched) {
       return pokByName.map((el) => (
         <PokCard
           // key={el.id}
@@ -83,7 +95,8 @@ export default function Home() {
         />
       ));
     }
-    if (searched)
+
+    if (searched || typeof pokByName === 'string')
       return (
         <div className="searchNotFound">
           <span>Pokemon not found!</span>
@@ -165,7 +178,10 @@ export default function Home() {
   // // // // // //
   useEffect(() => {
     if (pokTypes.length === 0) dispatch(getTypes());
-    if (allPok.length === 0) dispatch(getAllPok());
+    if (allPok.length === 0) {
+      dispatch(getAllPok());
+      dispatch(waitingOn());
+    }
   }, [dispatch]);
   // // // // // //
   const [sortedWith, setSortedWith] = useState({
@@ -196,7 +212,7 @@ export default function Home() {
   // // // // // //
   return (
     <div className="all">
-      {allPok.length > 0 ? (
+      {!waiting ? (
         <div className="allOp">
           <form onSubmit={handleSubmit}>
             <div className="searchBar">
@@ -308,11 +324,7 @@ export default function Home() {
       ) : null}
       <div className="center">
         <div className="pokeCardcitas">
-          {allPok.length === 0 ? (
-            <img className="waitingGif" src={waitingGif} />
-          ) : (
-            rend()
-          )}
+          {waiting ? <img className="waitingGif" src={waitingGif} /> : rend()}
         </div>
       </div>
     </div>
