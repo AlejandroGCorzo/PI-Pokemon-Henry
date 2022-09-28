@@ -87,16 +87,20 @@ const CreatePokemon = () => {
   const handleTypeSelector = (e) => {
     e.preventDefault();
     const find = selectedTypes.find((el) => el === e.target.value);
+    // const findInValues = values[e.target.name].find(
+    //   (el) => el === e.target.value
+    // );
     setTypeOptions(selectorAnother);
     if (selectedTypes.length > 0) setTypeOptions(twoTypesSelected);
     if (selectedTypes.length > 1) return;
     find
       ? setTypeOptions(alreadySelected)
       : setSelectedTypes((el) => [...el, e.target.value]);
-    setValues({
-      ...values,
-      [e.target.name]: [...values[e.target.name], ...[e.target.value]],
-    });
+    if (!find)
+      setValues({
+        ...values,
+        [e.target.name]: [...values[e.target.name], ...[e.target.value]],
+      });
   };
   //
   const submit = (e) => {
