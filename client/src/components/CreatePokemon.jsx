@@ -21,13 +21,13 @@ const CreatePokemon = () => {
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [errorName, setErrorName] = useState('');
   const [errorNumber, setErrorNumber] = useState({});
-  const [pokemonCreated, setPokemonCreated] = useState(false);
+  // const [pokemonCreated, setPokemonCreated] = useState(false);
   //
   const handleCickType = (e) => {
     e.preventDefault();
     if (selectedTypes.length === 1) setTypeOptions(selectorDefault);
     if (selectedTypes.length === 2) setTypeOptions(selectorAnother);
-    if (selectedTypes[0] === e.target.value) {
+    if (selectedTypes[0] === e.target.name) {
       setSelectedTypes((el) => {
         el.shift();
         return el;
@@ -316,7 +316,8 @@ const CreatePokemon = () => {
                       onClick={handleCickType}
                       key={el}
                       src={allTypesJPG[el]}
-                      value={el}
+                      // value={el}
+                      name={el}
                     />
                   ))}
               </div>
