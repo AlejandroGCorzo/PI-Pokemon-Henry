@@ -6,7 +6,10 @@ import * as allTypesJPG from '../imgs/PokTypes/exportTypes.js';
 const PokCard = (props) => {
   return (
     <div className={props.classSearch ? `card ${props.classSearch}` : 'card'}>
-      <Link className="LinkPokCard" to={`/pokemons/${props.id}`}>
+      <Link
+        className={`LinkPokCard ${props.types[0]}All`}
+        to={`/pokemons/${props.id}`}
+      >
         <div className="cardTitle">{props.name}</div>
 
         <img className="mainImg" src={props.img} alt={props.name} />
