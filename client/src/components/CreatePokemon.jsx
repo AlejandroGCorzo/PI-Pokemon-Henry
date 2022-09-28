@@ -21,6 +21,7 @@ const CreatePokemon = () => {
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [errorName, setErrorName] = useState('');
   const [errorNumber, setErrorNumber] = useState({});
+  const [pokemonCreated, setPokemonCreated] = useState(false);
   //
   const handleCickType = (e) => {
     e.preventDefault();

@@ -15,9 +15,11 @@ export default class Nav extends Component {
             First Generation!
           </Link>
           <Link className="link span" to="/pokemons/create">
-            Create New Pokemon!
+            Create Pokemon!
           </Link>
-          <Link className="link span aboutMe" to="/about">About Me</Link>
+          <Link className="link span aboutMe" to="/about">
+            About Me
+          </Link>
         </div>
       </nav>
     );
