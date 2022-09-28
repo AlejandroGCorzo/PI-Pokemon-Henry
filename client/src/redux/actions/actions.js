@@ -12,7 +12,7 @@ export const SORT = 'SORT';
 export const HOLD_SETTINGS = 'HOLD_SETTINGS';
 
 export const getAllPok = () => async (dispatch) => {
-  const info = await axios.get(`http://localhost:3001/pokemons`);
+  const info = await axios.get(`/pokemons`);
   console.log(info.data);
   dispatch({ type: GET_ALL_POKEMON, payload: info.data });
 };
@@ -28,26 +28,26 @@ export const getPokDetailFromSTORE = (id) => {
 };
 
 export const getPokByIdFromAPI = (id) => async (dispatch) => {
-  const info = await axios.get(`http://localhost:3001/pokemons/${id}`);
+  const info = await axios.get(`/pokemons/${id}`);
   console.log(info.data);
   dispatch({ type: GET_POK_BY_ID_FROM_API, payload: info.data });
 };
 
 export const getTypes = () => async (dispatch) => {
-  const info = await axios.get(`http://localhost:3001/types`);
+  const info = await axios.get(`/types`);
   console.log(info.data);
   dispatch({ type: GET_TYPES, payload: info.data });
 };
 
 export const createPokemon = (el) => async (dispatch) => {
   console.log(el);
-  await axios.post(`http://localhost:3001/pokemons`, el);
+  await axios.post(`/pokemons`, el);
   dispatch({ type: CREATE_POKEMON, el });
 };
 
 export const deletePokemon = (id) => async (dispatch) => {
   console.log(id);
-  await axios.delete(`http://localhost:3001/pokemons/${id}`);
+  await axios.delete(`/pokemons/${id}`);
 };
 
 export const getPokeByName = (str) => {
