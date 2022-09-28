@@ -11,7 +11,7 @@ const CreatePokemon = () => {
   const history = useHistory();
   const pokTypes = useSelector((state) => state.pokTypes);
   const allPok = useSelector((state) => state.allPok);
-  //
+  // //
   const selectorDefault = '--Select one--';
   const selectorAnother = '--Another type?--';
   const alreadySelected = '--Already selected!--';

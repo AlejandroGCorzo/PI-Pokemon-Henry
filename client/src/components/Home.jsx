@@ -15,7 +15,7 @@ import rightArrow from '../imgs/right-arrow.png';
 import leftArrow from '../imgs/left-arrow.png';
 import waitingGif from '../imgs/waitingGif.gif';
 import sideduck from '../imgs/sideduck.png';
-// // // // // // // // // // //
+// // // // // // // // // // // // 
 export default function Home() {
   const allPok = useSelector((state) => state.allPok);
   const sortedPok = useSelector((state) => state.sortedPok);
