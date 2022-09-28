@@ -69,7 +69,8 @@ const CreatePokemon = () => {
     if (e.target.name === 'name' && !/^(^$|[ a-z ])+$/i.test(e.target.value))
       setErrorName('Only letters!');
     else setErrorName('');
-    setValues({ ...values, [e.target.name]: e.target.value });
+    if (e.target.value.length < 15)
+      setValues({ ...values, [e.target.name]: e.target.value });
   };
   //
   const handleInputChangeNumbers = (e) => {
