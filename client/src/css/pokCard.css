@@ -114,141 +114,141 @@ a {
    }; */
 
 .normalAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(129, 129, 129))
-    drop-shadow(0px 0px 0.1em rgb(129, 129, 129))
-    drop-shadow(0px 0px 0.1em rgb(129, 129, 129))
-    drop-shadow(0px 0px 0.1em rgb(129, 129, 129));
+  filter: drop-shadow(0px 0px 0.2em rgb(129, 129, 129))
+    drop-shadow(0px 0px 0.2em rgb(129, 129, 129))
+    drop-shadow(0px 0px 0.2em rgb(129, 129, 129))
+    drop-shadow(0px 0px 0.2em rgb(129, 129, 129));
 }
 
 .fireAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(229, 97, 62))
-    drop-shadow(0px 0px 0.1em rgb(229, 97, 62))
-    drop-shadow(0px 0px 0.1em rgb(229, 97, 62))
-    drop-shadow(0px 0px 0.1em rgb(229, 97, 62));
+  filter: drop-shadow(0px 0px 0.2em rgb(229, 97, 62))
+    drop-shadow(0px 0px 0.2em rgb(229, 97, 62))
+    drop-shadow(0px 0px 0.2em rgb(229, 97, 62))
+    drop-shadow(0px 0px 0.2em rgb(229, 97, 62));
 }
 
 .waterAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(48, 154, 226))
-    drop-shadow(0px 0px 0.1em rgb(48, 154, 226))
-    drop-shadow(0px 0px 0.1em rgb(48, 154, 226))
-    drop-shadow(0px 0px 0.1em rgb(48, 154, 226));
+  filter: drop-shadow(0px 0px 0.2em rgb(48, 154, 226))
+    drop-shadow(0px 0px 0.2em rgb(48, 154, 226))
+    drop-shadow(0px 0px 0.2em rgb(48, 154, 226))
+    drop-shadow(0px 0px 0.2em rgb(48, 154, 226));
 }
 
 .electricAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(224, 189, 40))
-    drop-shadow(0px 0px 0.1em rgb(224, 189, 40))
-    drop-shadow(0px 0px 0.1em rgb(224, 189, 40))
-    drop-shadow(0px 0px 0.1em rgb(224, 189, 40));
+  filter: drop-shadow(0px 0px 0.2em rgb(224, 189, 40))
+    drop-shadow(0px 0px 0.2em rgb(224, 189, 40))
+    drop-shadow(0px 0px 0.2em rgb(224, 189, 40))
+    drop-shadow(0px 0px 0.2em rgb(224, 189, 40));
 }
 
 .grassAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(67, 153, 55))
-    drop-shadow(0px 0px 0.1em rgb(67, 153, 55))
-    drop-shadow(0px 0px 0.1em rgb(67, 153, 55))
-    drop-shadow(0px 0px 0.1em rgb(67, 153, 55));
+  filter: drop-shadow(0px 0px 0.2em rgb(67, 153, 55))
+    drop-shadow(0px 0px 0.2em rgb(67, 153, 55))
+    drop-shadow(0px 0px 0.2em rgb(67, 153, 55))
+    drop-shadow(0px 0px 0.2em rgb(67, 153, 55));
 }
 
 .iceAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(71, 201, 201))
-    drop-shadow(0px 0px 0.1em rgb(71, 201, 201))
-    drop-shadow(0px 0px 0.1em rgb(71, 201, 201))
-    drop-shadow(0px 0px 0.1em rgb(71, 201, 201));
+  filter: drop-shadow(0px 0px 0.2em rgb(71, 201, 201))
+    drop-shadow(0px 0px 0.2em rgb(71, 201, 201))
+    drop-shadow(0px 0px 0.2em rgb(71, 201, 201))
+    drop-shadow(0px 0px 0.2em rgb(71, 201, 201));
 }
 
 .fightingAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(234, 148, 33))
-    drop-shadow(0px 0px 0.1em rgb(234, 148, 33))
-    drop-shadow(0px 0px 0.1em rgb(234, 148, 33))
-    drop-shadow(0px 0px 0.1em rgb(234, 148, 33));
+  filter: drop-shadow(0px 0px 0.2em rgb(234, 148, 33))
+    drop-shadow(0px 0px 0.2em rgb(234, 148, 33))
+    drop-shadow(0px 0px 0.2em rgb(234, 148, 33))
+    drop-shadow(0px 0px 0.2em rgb(234, 148, 33));
 }
 
 .poisonAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(148, 84, 204))
-    drop-shadow(0px 0px 0.1em rgb(148, 84, 204))
-    drop-shadow(0px 0px 0.1em rgb(148, 84, 204))
-    drop-shadow(0px 0px 0.1em rgb(148, 84, 204));
+  filter: drop-shadow(0px 0px 0.2em rgb(148, 84, 204))
+    drop-shadow(0px 0px 0.2em rgb(148, 84, 204))
+    drop-shadow(0px 0px 0.2em rgb(148, 84, 204))
+    drop-shadow(0px 0px 0.2em rgb(148, 84, 204));
 }
 
 .groundAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(163, 113, 58))
-    drop-shadow(0px 0px 0.1em rgb(163, 113, 58))
-    drop-shadow(0px 0px 0.1em rgb(163, 113, 58))
-    drop-shadow(0px 0px 0.1em rgb(163, 113, 58));
+  filter: drop-shadow(0px 0px 0.2em rgb(163, 113, 58))
+    drop-shadow(0px 0px 0.2em rgb(163, 113, 58))
+    drop-shadow(0px 0px 0.2em rgb(163, 113, 58))
+    drop-shadow(0px 0px 0.2em rgb(163, 113, 58));
 }
 
 .flyingAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(116, 171, 209))
-    drop-shadow(0px 0px 0.1em rgb(116, 171, 209))
-    drop-shadow(0px 0px 0.1em rgb(116, 171, 209))
-    drop-shadow(0px 0px 0.1em rgb(116, 171, 209));
+  filter: drop-shadow(0px 0px 0.2em rgb(116, 171, 209))
+    drop-shadow(0px 0px 0.2em rgb(116, 171, 209))
+    drop-shadow(0px 0px 0.2em rgb(116, 171, 209))
+    drop-shadow(0px 0px 0.2em rgb(116, 171, 209));
 }
 
 .psychicAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(234, 108, 141))
-    drop-shadow(0px 0px 0.1em rgb(234, 108, 141))
-    drop-shadow(0px 0px 0.1em rgb(234, 108, 141))
-    drop-shadow(0px 0px 0.1em rgb(234, 108, 141));
+  filter: drop-shadow(0px 0px 0.2em rgb(234, 108, 141))
+    drop-shadow(0px 0px 0.2em rgb(234, 108, 141))
+    drop-shadow(0px 0px 0.2em rgb(234, 108, 141))
+    drop-shadow(0px 0px 0.2em rgb(234, 108, 141));
 }
 
 .bugAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(160, 160, 40))
-    drop-shadow(0px 0px 0.1em rgb(160, 160, 40))
-    drop-shadow(0px 0px 0.1em rgb(160, 160, 40))
-    drop-shadow(0px 0px 0.1em rgb(160, 160, 40));
+  filter: drop-shadow(0px 0px 0.2em rgb(160, 160, 40))
+    drop-shadow(0px 0px 0.2em rgb(160, 160, 40))
+    drop-shadow(0px 0px 0.2em rgb(160, 160, 40))
+    drop-shadow(0px 0px 0.2em rgb(160, 160, 40));
 }
 
 .rockAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(170, 165, 129))
-    drop-shadow(0px 0px 0.1em rgb(170, 165, 129))
-    drop-shadow(0px 0px 0.1em rgb(170, 165, 129))
-    drop-shadow(0px 0px 0.1em rgb(170, 165, 129));
+  filter: drop-shadow(0px 0px 0.2em rgb(170, 165, 129))
+    drop-shadow(0px 0px 0.2em rgb(170, 165, 129))
+    drop-shadow(0px 0px 0.2em rgb(170, 165, 129))
+    drop-shadow(0px 0px 0.2em rgb(170, 165, 129));
 }
 
 .ghostAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(111, 69, 112))
-    drop-shadow(0px 0px 0.1em rgb(111, 69, 112))
-    drop-shadow(0px 0px 0.1em rgb(111, 69, 112))
-    drop-shadow(0px 0px 0.1em rgb(111, 69, 112));
+  filter: drop-shadow(0px 0px 0.2em rgb(111, 69, 112))
+    drop-shadow(0px 0px 0.2em rgb(111, 69, 112))
+    drop-shadow(0px 0px 0.2em rgb(111, 69, 112))
+    drop-shadow(0px 0px 0.2em rgb(111, 69, 112));
 }
 
 .dragonAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(87, 111, 189))
-    drop-shadow(0px 0px 0.1em rgb(87, 111, 189))
-    drop-shadow(0px 0px 0.1em rgb(87, 111, 189))
-    drop-shadow(0px 0px 0.1em rgb(87, 111, 189));
+  filter: drop-shadow(0px 0px 0.2em rgb(87, 111, 189))
+    drop-shadow(0px 0px 0.2em rgb(87, 111, 189))
+    drop-shadow(0px 0px 0.2em rgb(87, 111, 189))
+    drop-shadow(0px 0px 0.2em rgb(87, 111, 189));
 }
 
 .darkAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(79, 71, 71))
-    drop-shadow(0px 0px 0.1em rgb(79, 71, 71))
-    drop-shadow(0px 0px 0.1em rgb(79, 71, 71))
-    drop-shadow(0px 0px 0.1em rgb(79, 71, 71));
+  filter: drop-shadow(0px 0px 0.2em rgb(79, 71, 71))
+    drop-shadow(0px 0px 0.2em rgb(79, 71, 71))
+    drop-shadow(0px 0px 0.2em rgb(79, 71, 71))
+    drop-shadow(0px 0px 0.2em rgb(79, 71, 71));
 }
 
 .steelAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(107, 173, 201))
-    drop-shadow(0px 0px 0.1em rgb(107, 173, 201))
-    drop-shadow(0px 0px 0.1em rgb(107, 173, 201))
-    drop-shadow(0px 0px 0.1em rgb(107, 173, 201));
+  filter: drop-shadow(0px 0px 0.2em rgb(107, 173, 201))
+    drop-shadow(0px 0px 0.2em rgb(107, 173, 201))
+    drop-shadow(0px 0px 0.2em rgb(107, 173, 201))
+    drop-shadow(0px 0px 0.2em rgb(107, 173, 201));
 }
 
 .fairyAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(226, 141, 226))
-    drop-shadow(0px 0px 0.1em rgb(226, 141, 226))
-    drop-shadow(0px 0px 0.1em rgb(226, 141, 226))
-    drop-shadow(0px 0px 0.1em rgb(226, 141, 226));
+  filter: drop-shadow(0px 0px 0.2em rgb(226, 141, 226))
+    drop-shadow(0px 0px 0.2em rgb(226, 141, 226))
+    drop-shadow(0px 0px 0.2em rgb(226, 141, 226))
+    drop-shadow(0px 0px 0.2em rgb(226, 141, 226));
 }
 
 .shadowAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(255, 255, 255))
-    drop-shadow(0px 0px 0.1em rgb(255, 255, 255))
-    drop-shadow(0px 0px 0.1em rgb(255, 255, 255))
-    drop-shadow(0px 0px 0.1em rgb(255, 255, 255));
+  filter: drop-shadow(0px 0px 0.2em rgb(255, 255, 255))
+    drop-shadow(0px 0px 0.2em rgb(255, 255, 255))
+    drop-shadow(0px 0px 0.2em rgb(255, 255, 255))
+    drop-shadow(0px 0px 0.2em rgb(255, 255, 255));
 }
 
 .unknownAll:hover {
-  filter: drop-shadow(0px 0px 0.1em rgb(104, 160, 144))
-    drop-shadow(0px 0px 0.1em rgb(104, 160, 144))
-    drop-shadow(0px 0px 0.1em rgb(104, 160, 144))
-    drop-shadow(0px 0px 0.1em rgb(104, 160, 144));
+  filter: drop-shadow(0px 0px 0.2em rgb(104, 160, 144))
+    drop-shadow(0px 0px 0.2em rgb(104, 160, 144))
+    drop-shadow(0px 0px 0.2em rgb(104, 160, 144))
+    drop-shadow(0px 0px 0.2em rgb(104, 160, 144));
 }
