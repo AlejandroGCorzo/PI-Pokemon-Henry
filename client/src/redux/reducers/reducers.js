@@ -80,6 +80,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokDetail: [],
+        pokByName: [],
       };
 
     case GET_TYPES:

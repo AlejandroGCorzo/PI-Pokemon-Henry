@@ -9,6 +9,7 @@ import {
   waitingOn,
   holdSettings,
   clear as clearStore,
+  clearDetails,
 } from '../redux/actions/actions';
 
 import TypeOptions from './TypeOptions.jsx';
@@ -77,7 +78,9 @@ const CreatePokemon = () => {
     if (e.target.name === 'name' && !/^(^$|[ a-z ])+$/i.test(e.target.value))
       setErrorName('Only letters!');
     else setErrorName('');
-    if (e.target.value.length < 15)
+    if (e.target.name === 'name' && e.target.value.length < 15)
+      setValues({ ...values, [e.target.name]: e.target.value });
+    if (e.target.name === 'img')
       setValues({ ...values, [e.target.name]: e.target.value });
   };
   //
@@ -146,6 +149,7 @@ const CreatePokemon = () => {
       dispatch(getAllPok());
       dispatch(waitingOn());
     }
+    return dispatch(clearDetails());
   }, [dispatch]);
   //
   return (
