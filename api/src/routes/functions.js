@@ -188,7 +188,7 @@ const getAllPokemon = async () => {
       };
     });
   let apiPok = await axios
-    .get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=40`)
+    .get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=151`)
     .then((el) => el.data.results);
   apiPok = apiPok.map((el) => axios.get(el.url));
   apiPok = await axios.all(apiPok).then((el) => {
