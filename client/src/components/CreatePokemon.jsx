@@ -75,7 +75,7 @@ const CreatePokemon = () => {
   const handleInputChange = function (e) {
     e.preventDefault();
     // console.log(selectedTypes);
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.name === 'name' && !/^(^$|[ a-z ])+$/i.test(e.target.value))
       setErrorName('Only letters!');
     else if (
@@ -124,7 +124,7 @@ const CreatePokemon = () => {
   //
   const submit = (e) => {
     e.preventDefault();
-    console.log(values);
+    // console.log(values);
     dispatch(createPokemon(values));
     setValues(initialValues);
     setSelectedTypes([]);
