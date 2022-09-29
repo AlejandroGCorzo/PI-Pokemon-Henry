@@ -100,7 +100,7 @@ export default function Home() {
       return (
         <div className="searchNotFound">
           <span>Pokemon not found!</span>
-          <img src={sideduck} />
+          <img src={sideduck} alt="sideduck search not found" />
         </div>
       );
 
@@ -324,7 +324,11 @@ export default function Home() {
       ) : null}
       <div className="center">
         <div className="pokeCardcitas">
-          {waiting ? <img className="waitingGif" src={waitingGif} /> : rend()}
+          {waiting ? (
+            <img className="waitingGif" alt="waiting gif" src={waitingGif} />
+          ) : (
+            rend()
+          )}
         </div>
       </div>
     </div>

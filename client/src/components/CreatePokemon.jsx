@@ -349,6 +349,7 @@ const CreatePokemon = () => {
                       key={el}
                       src={allTypesJPG[el]}
                       // value={el}
+                      alt={el}
                       name={el}
                     />
                   ))}

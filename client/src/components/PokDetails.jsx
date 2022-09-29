@@ -203,6 +203,7 @@ export default function PokDetails(props) {
               })
               .map((el) => (
                 <img
+                  alt={el}
                   key={el}
                   className="pokDetailTypesIMG"
                   src={allTypesJPG[el]}
@@ -227,14 +228,18 @@ export default function PokDetails(props) {
     if (waiting)
       return (
         <div className="pokeDetailWaitingGifContainer">
-          <img className="pokeDetailWaitingGif" src={waitingGif} />
+          <img
+            alt="waiting gif"
+            className="pokeDetailWaitingGif"
+            src={waitingGif}
+          />
         </div>
       );
 
     return (
       <div className="idNotFound">
         <span>Pokemon not found!</span>
-        <img src={sideduck} />
+        <img alt="sideduck" src={sideduck} />
       </div>
     );
   };
@@ -265,16 +270,14 @@ export default function PokDetails(props) {
   );
 }
 
-{
-  /* <span>{`Hp: ${pokDetail.hp}`}</span>
+/* <span>{`Hp: ${pokDetail.hp}`}</span>
           <span>{`Attack: ${pokDetail.attack}`}</span>
           <span>{`Special Attack: ${pokDetail.special_attack}`}</span>
           <span>{`Defense: ${pokDetail.defense}`}</span>
           <span>{`Special Defense: ${pokDetail.special_defense}`}</span>
           <span>{`Speed: ${pokDetail.speed}`}</span> */
-}
-{
-  /* <span>{`${
+
+/* <span>{`${
             pokDetail.types &&
             pokDetail.types
               .map((el) => {
@@ -283,7 +286,6 @@ export default function PokDetails(props) {
               })
               .join(' / ')
           }`}</span> */
-}
 
 // class PokDetails extends Component {
 //   componentDidMount() {

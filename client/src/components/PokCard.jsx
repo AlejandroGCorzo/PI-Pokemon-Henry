@@ -21,6 +21,7 @@ const PokCard = (props) => {
             })
             .map((el) => (
               <img
+                alt={el}
                 key={el}
                 className={`${el} eachCardType`}
                 src={allTypesJPG[el]}

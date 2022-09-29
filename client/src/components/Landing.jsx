@@ -20,7 +20,11 @@ export default function Landing() {
   }, [dispatch]);
   return (
     <div className="landing">
-      <img className="landingPokemonLogo" src={landingPokemonLogo} />
+      <img
+        className="landingPokemonLogo"
+        alt="landing logo"
+        src={landingPokemonLogo}
+      />
       <Link to="/pokemons">
         {/* <img className="landingPokCatch" src={landingPokCatch} /> */}
         <button className="landing-btton">
@@ -38,11 +42,24 @@ export default function Landing() {
           <a
             href="https://www.linkedin.com/in/alejandro-gabriel-corzo/"
             target="_blank"
+            rel="noreferrer"
           >
-            <img className="landingLinkedinLogo" src={linkedinLogo} />
+            <img
+              className="landingLinkedinLogo"
+              alt="linkedin logo"
+              src={linkedinLogo}
+            />
           </a>
-          <a href="https://github.com/AlejandroGCorzo" target="_blank">
-            <img className="landingGitHubLogo" src={gitHubLogo} />
+          <a
+            href="https://github.com/AlejandroGCorzo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className="landingGitHubLogo"
+              alt="github logo"
+              src={gitHubLogo}
+            />
           </a>
         </div>
         <span className="subLandingSpan email">
