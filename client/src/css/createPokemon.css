@@ -114,6 +114,12 @@
   box-shadow: 0 0 1px white, 0 0 2px white, 0 0 4px white, 0 0 8px white;
 }
 
+.createPokBtton[disabled] {
+  filter: none;
+  filter: drop-shadow(0px 0px 0.05em red) drop-shadow(0px 0px 0.05em red)
+    drop-shadow(0px 0px 0.05em red) drop-shadow(0px 0px 0.05em red);
+}
+
 .createPokBtton[disabled]:hover {
   background: red;
   filter: none;

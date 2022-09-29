@@ -92,7 +92,8 @@ const CreatePokemon = () => {
         [e.target.name]: 'Between 1 and 200!',
       });
     else setErrorNumber({ ...errorNumber, [e.target.name]: undefined });
-    setValues({ ...values, [e.target.name]: Number(e.target.value) });
+    if (/[0-9]+/.test(Number(e.target.value)))
+      setValues({ ...values, [e.target.name]: Number(e.target.value) });
   };
   //
   const handleTypeSelector = (e) => {
@@ -179,7 +180,7 @@ const CreatePokemon = () => {
                 value={values.attack}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="attack"
               />
               <div className="errorDiv">
@@ -194,7 +195,7 @@ const CreatePokemon = () => {
                 value={values.special_attack}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="special_attack"
               />
               <div className="errorDiv">
@@ -211,7 +212,7 @@ const CreatePokemon = () => {
                 value={values.speed}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="speed"
               />
               <div className="errorDiv">
@@ -229,7 +230,7 @@ const CreatePokemon = () => {
                 value={values.hp}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="hp"
               />
               <div className="errorDiv">
@@ -244,7 +245,7 @@ const CreatePokemon = () => {
                 value={values.defense}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="defense"
               />
               <div className="errorDiv">
@@ -259,7 +260,7 @@ const CreatePokemon = () => {
                 value={values.special_defense}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="special_defense"
               />
               <div className="errorDiv">
@@ -291,7 +292,7 @@ const CreatePokemon = () => {
                 value={values.weight}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="weight"
               />
               <div className="errorDiv">
@@ -306,7 +307,7 @@ const CreatePokemon = () => {
                 value={values.height}
                 onChange={handleInputChangeNumbers}
                 autoComplete="off"
-                type="number"
+                type="text"
                 name="height"
               />
               <div className="errorDiv">
