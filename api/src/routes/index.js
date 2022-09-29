@@ -6,6 +6,7 @@ const {
   getPokByName,
   getTypes,
   destroyPokemon,
+  modifyPokemon,
 } = require('./functions.js');
 
 // Importar todos los routers;
@@ -34,6 +35,17 @@ router.delete('/pokemons/:id', async (require, resolve) => {
     resolve.send(await destroyPokemon(id));
   } catch (error) {
     resolve.status(400).send('Pokemon not in DB!');
+  }
+});
+
+router.put('/pokemons/:id', async (require, resolve) => {
+  const { id } = require.params;
+  const newPok = { ...require.body };
+  // console.log({ id, ...newPok });
+  try {
+    resolve.send(await modifyPokemon({ id, ...newPok }));
+  } catch (error) {
+    resolve.status(400).send(error);
   }
 });
 

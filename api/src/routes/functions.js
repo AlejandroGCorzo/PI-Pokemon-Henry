@@ -144,7 +144,7 @@ const getPokById = async (id) => {
         },
       },
     });
-    console.log(apiPok);
+    // console.log(apiPok);
     apiPok = apiPok
       .map((el) => el.dataValues)
       .map((el) => {
@@ -208,6 +208,32 @@ const destroyPokemon = async (id) => {
   return `Pokemon deleted!`;
 };
 
+const modifyPokemon = async (newPok) => {
+  const oldPok = await Pokemon.findOne({
+    where: { id: newPok.id },
+    include: { model: Type, attributes: ['name'], through: { attributes: [] } },
+  });
+  console.log(newPok.types)
+
+  let pokeType = newPok.types.map((el) => el.toLowerCase());
+  pokeType = await pokeType.map(async (el) => {
+    const [typp, created] = await Type.findOrCreate({
+      where: { name: el },
+    });
+    return typp;
+  });
+
+  pokeType = await Promise.all(pokeType);
+  console.log(pokeType)
+  try {
+    await oldPok.update(newPok);
+    await oldPok.setTypes(pokeType);
+    return 'JOIA';
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   createPokemon,
   getAllPokemon,
@@ -215,4 +241,5 @@ module.exports = {
   getPokByName,
   getTypes,
   destroyPokemon,
+  modifyPokemon,
 };
