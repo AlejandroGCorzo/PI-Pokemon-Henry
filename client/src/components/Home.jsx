@@ -86,7 +86,7 @@ export default function Home() {
     if (pokByName.length && Array.isArray(pokByName) && searched) {
       return pokByName.map((el) => (
         <PokCard
-          // key={el.id}
+          key={el.id}
           classSearch="TheOne"
           id={el.id}
           name={el.name}
