@@ -15,9 +15,12 @@ export const WAITING_ON = 'WAITING_ON';
 export const CLEAR_DETAILS = 'CLEAR_DETAILS';
 
 export const getAllPok = () => async (dispatch) => {
-  const info = await axios.get(`/pokemons`);
-  // console.log(info.data);
-  dispatch({ type: GET_ALL_POKEMON, payload: info.data });
+  // const info = await axios.get(`/pokemons`);
+  // // console.log(info.data);
+  // dispatch({ type: GET_ALL_POKEMON, payload: info.data });
+  await axios
+    .get(`/pokemons`)
+    .then((el) => dispatch({ type: GET_ALL_POKEMON, payload: el.data }));
 };
 
 // export const getPokDetail = (id) => async (dispatch) => {
@@ -31,15 +34,23 @@ export const getPokDetailFromSTORE = (id) => {
 };
 
 export const getPokByIdFromAPI = (id) => async (dispatch) => {
-  const info = await axios.get(`/pokemons/${id}`);
-  // console.log(info.data);
-  dispatch({ type: GET_POK_BY_ID_FROM_API, payload: info.data });
+  // const info = await axios.get(`/pokemons/${id}`);
+  // // console.log(info.data);
+  // dispatch({ type: GET_POK_BY_ID_FROM_API, payload: info.data });
+  axios
+    .get(`/pokemons/${id}`)
+    .then((data) =>
+      dispatch({ type: GET_POK_BY_ID_FROM_API, payload: data.data })
+    );
 };
 
 export const getTypes = () => async (dispatch) => {
-  const info = await axios.get(`/types`);
-  // console.log(info.data);
-  dispatch({ type: GET_TYPES, payload: info.data });
+  // const info = await axios.get(`/types`);
+  // // console.log(info.data);
+  // dispatch({ type: GET_TYPES, payload: info.data });
+  axios
+    .get('/types')
+    .then((el) => dispatch({ type: GET_TYPES, payload: el.data }));
 };
 
 export const createPokemon = (el) => async (dispatch) => {
