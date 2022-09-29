@@ -74,9 +74,16 @@ const CreatePokemon = () => {
   //
   const handleInputChange = function (e) {
     e.preventDefault();
-    console.log(selectedTypes);
+    // console.log(selectedTypes);
+    console.log(e.target.value);
     if (e.target.name === 'name' && !/^(^$|[ a-z ])+$/i.test(e.target.value))
       setErrorName('Only letters!');
+    else if (
+      allPok.find(
+        (el) => el.name.toLowerCase() === e.target.value.toLowerCase()
+      )
+    )
+      setErrorName('Name used!');
     else setErrorName('');
     if (e.target.name === 'name' && e.target.value.length < 15)
       setValues({ ...values, [e.target.name]: e.target.value });
@@ -142,6 +149,8 @@ const CreatePokemon = () => {
     setTypeOptions(selectorDefault);
     setSelectedTypes([]);
     setValues(initialValues);
+    setErrorName('');
+    setErrorNumber('');
   };
   //
   useEffect(() => {
