@@ -41,7 +41,7 @@ router.delete('/pokemons/:id', async (require, resolve) => {
 router.put('/pokemons/:id', async (require, resolve) => {
   const { id } = require.params;
   const newPok = { ...require.body };
-  // console.log({ id, ...newPok });
+  console.log({ id, ...newPok });
   try {
     resolve.send(await modifyPokemon({ id, ...newPok }));
   } catch (error) {
@@ -74,6 +74,7 @@ router.post('/pokemons', async (require, resolve) => {
     weight,
     img,
     type,
+    moves,
   } = require.body;
   try {
     resolve.json(
@@ -88,7 +89,8 @@ router.post('/pokemons', async (require, resolve) => {
         height,
         weight,
         img,
-        type
+        type,
+        moves
       )
     );
   } catch (error) {

@@ -24,7 +24,8 @@ const createPokemon = async (
   height,
   weight,
   img,
-  type
+  type,
+  moves
 ) => {
   let pokeType = type.map((el) => el.toLowerCase());
 
@@ -45,6 +46,7 @@ const createPokemon = async (
   if (img === '' || !img)
     img =
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/800px-Pokebola-pokeball-png-0.png';
+  moves = moves.join();
   const newPoke = await Pokemon.create({
     name,
     hp,
@@ -56,6 +58,7 @@ const createPokemon = async (
     height,
     weight,
     img,
+    moves,
   });
 
   newPoke.addTypes(pokeType);
@@ -78,7 +81,11 @@ const getPokByName = async (name) => {
   apiPok = apiPok
     .map((el) => el.dataValues)
     .map((el) => {
-      return { ...el, types: el.types.map((el) => el.name) };
+      return {
+        ...el,
+        types: el.types.map((el) => el.name),
+        moves: el.moves.split(','),
+      };
     });
   if (apiPok.length === 0)
     apiPok = await axios
@@ -100,6 +107,7 @@ const getPokByName = async (name) => {
           weight: el.data.weight,
           img: el.data.sprites.other['official-artwork'].front_default,
           types: el.data.types.map((el) => el.type.name),
+          moves: el.data.moves.map((el) => el.move.name).slice(0, 3),
         };
       });
 
@@ -131,6 +139,7 @@ const getPokById = async (id) => {
           weight: el.data.weight,
           img: el.data.sprites.other['official-artwork'].front_default,
           types: el.data.types.map((el) => el.type.name),
+          moves: el.data.moves.map((el) => el.move.name).slice(0, 3),
         };
       });
   else {
@@ -148,7 +157,11 @@ const getPokById = async (id) => {
     apiPok = apiPok
       .map((el) => el.dataValues)
       .map((el) => {
-        return { ...el, types: el.types.map((el) => el.name) };
+        return {
+          ...el,
+          types: el.types.map((el) => el.name),
+          moves: el.moves.split(','),
+        };
       })[0];
   }
   return apiPok;
@@ -168,14 +181,19 @@ const getAllPokemon = async () => {
   dbPok = dbPok
     .map((el) => el.dataValues)
     .map((el) => {
-      return { ...el, types: el.types.map((el) => el.name) };
+      return {
+        ...el,
+        types: el.types.map((el) => el.name),
+        moves: el.moves.split(','),
+      };
     });
   let apiPok = await axios
-    .get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=151`)
+    .get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=40`)
     .then((el) => el.data.results);
   apiPok = apiPok.map((el) => axios.get(el.url));
   apiPok = await axios.all(apiPok).then((el) => {
     el.map((el) => {
+      // console.log(el.data)
       allPokes.push({
         id: el.data.id,
         name: el.data.name,
@@ -194,6 +212,7 @@ const getAllPokemon = async () => {
         weight: el.data.weight,
         img: el.data.sprites.other['official-artwork'].front_default,
         types: el.data.types.map((el) => el.type.name),
+        moves: el.data.moves.map((el) => el.move.name).slice(0, 3),
       });
     });
     return allPokes;
@@ -213,18 +232,19 @@ const modifyPokemon = async (newPok) => {
     where: { id: newPok.id },
     include: { model: Type, attributes: ['name'], through: { attributes: [] } },
   });
-  console.log(newPok.types)
-
-  let pokeType = newPok.types.map((el) => el.toLowerCase());
-  pokeType = await pokeType.map(async (el) => {
-    const [typp, created] = await Type.findOrCreate({
-      where: { name: el },
+  console.log(newPok.types);
+  if (newPok.types && newPok.types.length) {
+    let pokeType = newPok.types.map((el) => el.toLowerCase());
+    pokeType = await pokeType.map(async (el) => {
+      const [typp, created] = await Type.findOrCreate({
+        where: { name: el },
+      });
+      return typp;
     });
-    return typp;
-  });
 
-  pokeType = await Promise.all(pokeType);
-  console.log(pokeType)
+    pokeType = await Promise.all(pokeType);
+  }
+  // console.log(pokeType);
   try {
     await oldPok.update(newPok);
     await oldPok.setTypes(pokeType);
