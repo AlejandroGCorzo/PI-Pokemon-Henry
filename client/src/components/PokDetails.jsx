@@ -40,7 +40,7 @@ export default function PokDetails(props) {
       dispatch(getAllPok());
       dispatch(waitingOn());
       dispatch(getPokByIdFromAPI(props.match.params.id));
-    } else if (allPok.find((el) => el.id === props.match.params.id))
+    } else if (allPok.find((el) => el.id == props.match.params.id))
       dispatch(getPokDetailFromSTORE(props.match.params.id));
     else {
       dispatch(waitingOn());
