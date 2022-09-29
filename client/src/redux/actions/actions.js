@@ -16,7 +16,7 @@ export const CLEAR_DETAILS = 'CLEAR_DETAILS';
 
 export const getAllPok = () => async (dispatch) => {
   const info = await axios.get(`/pokemons`);
-  console.log(info.data);
+  // console.log(info.data);
   dispatch({ type: GET_ALL_POKEMON, payload: info.data });
 };
 
@@ -32,24 +32,24 @@ export const getPokDetailFromSTORE = (id) => {
 
 export const getPokByIdFromAPI = (id) => async (dispatch) => {
   const info = await axios.get(`/pokemons/${id}`);
-  console.log(info.data);
+  // console.log(info.data);
   dispatch({ type: GET_POK_BY_ID_FROM_API, payload: info.data });
 };
 
 export const getTypes = () => async (dispatch) => {
   const info = await axios.get(`/types`);
-  console.log(info.data);
+  // console.log(info.data);
   dispatch({ type: GET_TYPES, payload: info.data });
 };
 
 export const createPokemon = (el) => async (dispatch) => {
-  console.log(el);
+  // console.log(el);
   await axios.post(`/pokemons`, el);
   dispatch({ type: CREATE_POKEMON, el });
 };
 
 export const deletePokemon = (id) => async (dispatch) => {
-  console.log(id);
+  // console.log(id);
   await axios.delete(`/pokemons/${id}`);
 };
 
@@ -62,7 +62,7 @@ export const getPokeByName = (str) => {
 
 export const getPokeByNameFromAPI = (str) => async (dispatch) => {
   const info = await axios.get(`/pokemons?name=${str}`);
-  console.log(info.data);
+  // console.log(info.data);
   dispatch({ type: GET_POK_BY_NAME_FROM_API, payload: info.data });
 };
 
